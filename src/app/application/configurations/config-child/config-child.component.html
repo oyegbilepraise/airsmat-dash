@@ -1,0 +1,117 @@
+<div class="container ml-10">
+  <div class="pt-6 cursor-pointer" (click)="back()">
+    <svg
+      width="61"
+      height="15"
+      viewBox="0 0 61 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M8.70714 13.293L7.29292 14.7072L0.585815 8.00008L7.29292 1.29297L8.70714 2.70718L3.41424 8.00008L8.70714 13.293Z"
+        fill="black"
+      />
+      <path
+        d="M28.876 13C31.072 13 32.35 11.686 32.35 9.76C32.35 8.32 31.288 7.006 30.01 6.808C31.108 6.574 32.116 5.566 32.116 4.054C32.116 2.254 30.838 0.993999 28.75 0.993999H23.404V13H28.876ZM28.498 6.196H24.898V2.326H28.498C29.848 2.326 30.568 3.19 30.568 4.27C30.568 5.368 29.848 6.196 28.498 6.196ZM28.588 11.668H24.898V7.528H28.588C30.046 7.528 30.802 8.5 30.802 9.598C30.802 10.876 29.974 11.668 28.588 11.668ZM41.4563 13V7.024C41.4563 4.918 39.9443 4.09 38.0903 4.09C36.6683 4.09 35.5523 4.558 34.6163 5.53L35.2463 6.466C36.0203 5.62 36.8663 5.26 37.9103 5.26C39.1703 5.26 40.1063 5.926 40.1063 7.078V8.644C39.4043 7.852 38.4143 7.474 37.2263 7.474C35.7503 7.474 34.2023 8.374 34.2023 10.336C34.2023 12.226 35.7683 13.216 37.2263 13.216C38.3963 13.216 39.4043 12.802 40.1063 12.01V13H41.4563ZM37.7303 12.244C36.4523 12.244 35.5703 11.452 35.5703 10.336C35.5703 9.238 36.4523 8.446 37.7303 8.446C38.6663 8.446 39.5843 8.806 40.1063 9.508V11.164C39.5843 11.884 38.6663 12.244 37.7303 12.244ZM48.0141 13.216C49.5981 13.216 50.5341 12.568 51.2001 11.704L50.3001 10.876C49.7241 11.65 48.9861 12.01 48.0861 12.01C46.2501 12.01 45.0801 10.57 45.0801 8.644C45.0801 6.718 46.2501 5.296 48.0861 5.296C48.9861 5.296 49.7241 5.62 50.3001 6.412L51.2001 5.602C50.5341 4.738 49.5981 4.09 48.0141 4.09C45.4221 4.09 43.6761 6.07 43.6761 8.644C43.6761 11.218 45.4221 13.216 48.0141 13.216ZM60.7598 13L56.8898 8.248L60.7418 4.306H59.0318L54.4598 8.932V0.993999H53.1098V13H54.4598V10.516L55.9178 9.094L59.0318 13H60.7598Z"
+        fill="#3D3D3D"
+      />
+    </svg>
+  </div>
+  <div class="card rounded-lg bg-white shadow-lg mt-5">
+    <hr />
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead class="text-white text-center">
+        <tr class="text-center font-semibold">
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white"
+          >
+            Created By
+          </th>
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white"
+          >
+            {{
+              view === "1"
+                ? "ownership Structure"
+                : view === "2"
+                ? "type name"
+                : view === "3"
+                ? "business_type"
+                : view === "4"
+                ? "commodity"
+                : view === "5"
+                ? ""
+                : view === "6"
+                ? "currency"
+                : view === "7"
+                ? "industry"
+                : view === "8"
+                ? ""
+                : view === "9"
+                ? ""
+                : view === "10"
+                ? "staff_size"
+                : ""
+            }}
+          </th>
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white"
+          >
+            {{ view === "6" ? "symbol" : "description" }}
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200">
+        <tr *ngFor="let data of configurations; let i = index">
+          <td class="px-6 py-4 whitespace-nowrap">
+            <div class="flex items-center">
+              <div class="flex section1">
+                <div class="font-medium text-gray-500 mx-3">
+                  {{ data?.created_by }}
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <div class="flex items-center">
+              <div class="">
+                <div class="font-medium text-gray-500">
+                  {{
+                    data?.ownership_structure ||
+                      data.type_name ||
+                      data.business_type ||
+                      data.commodity ||
+                      data.currency ||
+                      data.industry ||
+                      data.staff_size
+                  }}
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <div class="text-gray-500">
+              {{ data?.description || data.symbol }}
+            </div>
+          </td>
+          <td>
+            <i class="fas fa-edit"></i>
+            <i class="fa fa-trash mx-4" aria-hidden="true"></i>
+          </td>
+        </tr>
+        <div
+          *ngIf="!configurations.length"
+          class="text-center flex items-center justify-center p-10 text-3xl"
+        >
+          No Data Yet
+        </div>
+      </tbody>
+    </table>
+  </div>
+</div>

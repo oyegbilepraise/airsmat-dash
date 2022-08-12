@@ -1,0 +1,166 @@
+<div class="container m-5">
+  <div class="flex">
+    <form>
+      <div class="relative" style="width: 600px">
+        <div
+          class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 29 29"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M13.0513 24.1025C19.1547 24.1025 24.1026 19.1547 24.1026 13.0513C24.1026 6.94782 19.1547 2 13.0513 2C6.94783 2 2 6.94782 2 13.0513C2 19.1547 6.94783 24.1025 13.0513 24.1025Z"
+              stroke="#FFD694"
+              stroke-width="2.49633"
+            />
+            <path
+              d="M20.3846 20.3845L28 28"
+              stroke="#FFD694"
+              stroke-width="2.49633"
+            />
+          </svg>
+        </div>
+        <input
+          type="search"
+          id="default-search"
+          class="block p-4 pl-10 w-full text-s m text-gray-900 bg-white outline-0 rounded-lg border border-gray-300 focus:ring-orange-500 focus:border-orange-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500"
+          placeholder="Search"
+          required=""
+        />
+      </div>
+    </form>
+    <div class="ml-auto">
+      <select
+        id="countries"
+        style="background-color: #ff9d00"
+        class="text-white outline-0 text-sm rounded-lg block w-full p-2.5 ml-auto"
+      >
+        <option selected disabled hidden class="bg-white text-black">
+          Filter by
+        </option>
+        <option value="US" class="bg-white text-black">None</option>
+        <option value="CA" class="bg-white text-black">Active</option>
+        <option value="FR" class="bg-white text-black">Rejected</option>
+        <option value="DE" class="bg-white text-black">Pending</option>
+        <option value="DE" class="bg-white text-black">Ongoing</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="card rounded-lg bg-white shadow-lg mt-5">
+    <div class="p-5">Loan Sheet</div>
+
+    <hr />
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead class="text-white text-center">
+        <tr class="text-center font-semibold">
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white"
+          >
+            Institutions Name
+          </th>
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white"
+          >
+            Amount
+          </th>
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white"
+          >
+            Date Requested
+          </th>
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white text-center"
+          >
+            Status
+          </th>
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white"
+          >
+            Return Date
+          </th>
+          <th
+            scope="col"
+            class="py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white"
+          >
+            Action
+          </th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200">
+        <tr *ngFor="let data of loanReport; let i = index">
+          <td class="px-6 py-4 whitespace-nowrap">
+            <div class="flex items-center">
+              <div class="flex section1">
+                <input type="checkbox" class="check__input">
+                <span class="checkbox__inner"></span>
+                <div class="font-medium text-gray-500 mx-3">{{ data.name }}</div>
+              </div>
+            </div>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <div class="flex items-center">
+              <div class="">
+                <div class="font-medium text-gray-500">{{ data.name }}</div>
+              </div>
+            </div>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <div class="text-gray-500">NGN {{ data.amount }}</div>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <div class="text-gray-500">{{ data.date_requested }}</div>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-center">
+            <span
+              *ngIf="data.status === 'active'"
+              class="px-2 inline-flex text-xs leading-5 font-bold rounded-full bg-green-100 text-green-800 text-center"
+            >
+              Active
+            </span>
+            <span
+              *ngIf="data.status === 'rejected'"
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full text-black"
+              style="background-color: #f8e5ba"
+            >
+              Deactivated
+            </span>
+            <span
+              *ngIf="data.status === 'ongoing'"
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full text-black"
+              style="background-color: #dfe8fd"
+            >
+              Ongoing
+            </span>
+            <span
+              *ngIf="data.status === 'pending'"
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full text-black"
+              style="background-color: #f9f4cc"
+            >
+              Pending
+            </span>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-gray-500">
+            <span class="ml-10" *ngIf="data.return_date === ''" >-</span>
+            {{ data.return_date }}
+          </td>
+          <td [routerLink]="['/app/admin/institutions/1/' + data.name]">
+            <button class="btn btn-primary rounded-sm" style="color: #a87729">
+              View Customer
+              <i class="fa fa-angle-right ml-5 mt-1" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

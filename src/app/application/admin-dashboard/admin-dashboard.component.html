@@ -1,0 +1,489 @@
+<div
+  class="con mx-auto mt-5 relative"
+  [ngClass]="!showNav ? 'opacity-100' : 'opacity-50'"
+>
+  <div class="w-full bg-white rounded-r-lg flex" style="height: 60px">
+    <div style="background-color: #ff9d00; width: 3px"></div>
+    <div class="flex items-center justify-center text-xl ml-3">Overview</div>
+    <button
+      (click)="open()"
+      class="ml-auto rounded-lg m-2 p-2 text-white text-xs px-4 shadow"
+      style="background-color: #ff9d00"
+    >
+      <i class="fa fa-plus" aria-hidden="true"></i> Add new Institutions
+    </button>
+  </div>
+
+  <div class="card-view mt-5">
+    <div class="grid grid-cols-4 gap-10">
+      <div class="card bg-white shadow rounded-lg flex p-5">
+        <div>
+          <p class="text-2xl">320</p>
+          <p class="text-gray-400">All Institutions</p>
+        </div>
+        <svg
+          class="ml-auto mt-2 bg-blue-100 rounded-lg p-2"
+          width="39"
+          height="39"
+          viewBox="0 0 26 26"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M23.9135 26H2.05183C1.50781 25.9983 0.986584 25.7813 0.6021 25.3964C0.217615 25.0115 0.00114262 24.49 0 23.946L0 19.1577C0.00114262 18.6136 0.217615 18.0922 0.6021 17.7073C0.986584 17.3224 1.50781 17.1054 2.05183 17.1037H8.21167V10.2635C8.21338 9.71985 8.43011 9.19895 8.81453 8.81453C9.19895 8.43011 9.71985 8.21338 10.2635 8.21167H17.1167V2.0865C17.119 1.53308 17.3401 1.00304 17.7318 0.61212C18.1236 0.221196 18.6541 0.00113989 19.2075 0L23.9157 0C24.4678 0.00341499 24.9963 0.224407 25.3865 0.615025C25.7767 1.00564 25.9972 1.53438 26 2.0865V23.9135C25.9972 24.466 25.7764 24.9951 25.3857 25.3857C24.9951 25.7764 24.466 25.9972 23.9135 26Z"
+            fill="#327AF9"
+          />
+        </svg>
+      </div>
+      <div class="card bg-white flex p-5 shadow rounded-lg">
+        <div>
+          <p class="text-2xl">320</p>
+          <p class="text-gray-400">New Loans</p>
+        </div>
+        <svg
+          class="ml-auto"
+          width="50"
+          height="50"
+          viewBox="0 0 50 50"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="50" height="50" rx="9.1875" fill="#E4FFEE" />
+          <circle cx="24.5" cy="25.2656" r="14.9297" fill="#01C246" />
+          <circle cx="25" cy="25" r="15.2344" fill="#01C246" />
+          <path
+            d="M20.8333 31.6667V19.1667H21.25L28.75 30.8334H29.1666V18.3334M18.3333 23.3334H31.6666M18.3333 26.6667H31.6666"
+            stroke="white"
+            stroke-width="2"
+          />
+        </svg>
+      </div>
+      <div class="card bg-white flex p-5 shadow rounded-lg">
+        <div>
+          <p class="text-2xl">320</p>
+          <p class="text-gray-400">Active Loans</p>
+        </div>
+        <svg
+          class="ml-auto"
+          width="50"
+          height="51"
+          viewBox="0 0 50 51"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect y="0.858154" width="50" height="50" rx="9.375" fill="#FFF3E2" />
+          <rect
+            x="11.3281"
+            y="16.4832"
+            width="27.3438"
+            height="18.75"
+            rx="2.34375"
+            fill="#FF9D00"
+          />
+          <line
+            x1="11.3281"
+            y1="23.1238"
+            x2="38.6719"
+            y2="23.1238"
+            stroke="white"
+            stroke-width="1.5625"
+          />
+          <line
+            x1="14.4531"
+            y1="30.9363"
+            x2="17.5781"
+            y2="30.9363"
+            stroke="white"
+            stroke-width="1.5625"
+            stroke-linecap="round"
+          />
+          <line
+            x1="20.3125"
+            y1="30.9363"
+            x2="23.4375"
+            y2="30.9363"
+            stroke="white"
+            stroke-width="1.5625"
+            stroke-linecap="round"
+          />
+        </svg>
+      </div>
+      <div class="card bg-white flex p-5 shadow rounded-lg">
+        <div>
+          <p class="text-2xl">320</p>
+          <p class="text-gray-400">Completed Loans</p>
+        </div>
+        <svg
+          class="ml-auto"
+          width="50"
+          height="51"
+          viewBox="0 0 50 51"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect y="0.858154" width="50" height="50" rx="9.375" fill="#FFF5ED" />
+          <rect
+            x="10.9375"
+            y="29.7644"
+            width="17.1875"
+            height="5.46875"
+            rx="2.34375"
+            fill="#EA6400"
+            stroke="#FFF5ED"
+            stroke-width="1.5625"
+          />
+          <rect
+            x="14.0625"
+            y="12.9675"
+            width="17.1875"
+            height="5.46875"
+            rx="2.34375"
+            fill="#FFD694"
+            stroke="#FFF5ED"
+            stroke-width="1.5625"
+          />
+          <rect
+            x="10.9375"
+            y="18.4363"
+            width="17.1875"
+            height="5.46875"
+            rx="2.34375"
+            fill="#EA6400"
+            stroke="#FFF5ED"
+            stroke-width="1.5625"
+          />
+          <rect
+            x="13.2812"
+            y="23.905"
+            width="17.1875"
+            height="5.46875"
+            rx="2.34375"
+            fill="#EA6400"
+            stroke="#FFF5ED"
+            stroke-width="1.5625"
+          />
+          <ellipse
+            cx="29.8762"
+            cy="29.1811"
+            rx="9.1731"
+            ry="9.18236"
+            fill="#EA6400"
+            stroke="#FFF5ED"
+            stroke-width="1.5625"
+          />
+          <path
+            d="M27.4016 33.1731V26.3153H27.6302L31.7448 32.7159H31.9734V25.8582M26.03 28.6013H33.345M26.03 30.43H33.345"
+            stroke="#F2F2F2"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="card rounded-lg bg-white shadow-lg mt-5 p-1">
+    <div class="flex p-4">
+      <p class="font-semibold">Loan Reports</p>
+      <select
+        id="countries"
+        style="color: #ff9d00"
+        class="w-1/6 bg-gray-50 text-gray-900 text-sm rounded-lg block w-full p-2.5 ml-auto outline-0"
+      >
+        <option selected="" class="text-black">Today</option>
+        <option value="US" class="text-black">United States</option>
+        <option value="CA" class="text-black">Canada</option>
+        <option value="FR" class="text-black">France</option>
+        <option value="DE" class="text-black">Germany</option>
+      </select>
+    </div>
+
+    <hr />
+
+    <div class="grid grid-cols-3">
+      <div class="col-span-2 border-r-0">
+        <div class="px-5 mt-4">
+          <p class="font-semibold" style="color: #f94144">Active Loans</p>
+          <div class="flex">
+            <div>
+              <p
+                class="text-sm text-gray-400 mt-3 mb-1"
+                style="font-weight: 400"
+              >
+                Value of Loans
+              </p>
+              <p class="font-semibold text-xl">NGN 35,020,020.00</p>
+            </div>
+            <div class="ml-auto">
+              <div>
+                <p
+                  class="text-sm text-gray-400 mt-3 mb-1"
+                  style="font-weight: 400"
+                >
+                  Volume of Loans
+                </p>
+                <p class="text-xl">320</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border border-r-0 border-b-0 border-l-0 mt-5 mb-2 px-5">
+          <p class="font-semibold mt-5" style="color: #f3722c">
+            Completed Loans
+          </p>
+          <div class="flex">
+            <div>
+              <p
+                class="text-sm text-gray-400 mt-3 mb-1"
+                style="font-weight: 400"
+              >
+                Value of Loans
+              </p>
+              <p class="text-xl">NGN 35,020,020.00</p>
+            </div>
+            <div class="ml-auto">
+              <div>
+                <p
+                  class="text-sm text-gray-400 mt-3 mb-1"
+                  style="font-weight: 400"
+                >
+                  Volume of Loans
+                </p>
+                <p class="text-xl">320</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border border-r-0 border-t-0 border-b-0 p-4">
+        <div class="flex">
+          <div class="w-1/2" style="transform: rotate(90deg)">
+            <canvas
+              baseChart
+              width="200"
+              height="150"
+              [data]="doughnutChartData"
+              [type]="doughnutChartType"
+            >
+              >
+            </canvas>
+          </div>
+          <div class="flex flex-col justify-center ml-10">
+            <div class="flex">
+              <svg
+                class="-mt-1"
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="7" cy="6.72021" r="6.5" fill="#F94144" />
+              </svg>
+
+              <p class="-mt-2 mx-3">Active Loan</p>
+            </div>
+            <div class="flex mt-5">
+              <svg
+                class="-mt-1"
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="7" cy="6.72021" r="6.5" fill="#F3722C" />
+              </svg>
+              <p class="-mt-2 mx-3">Completed Loan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card rounded-lg bg-white shadow-lg mt-5">
+    <div class="p-5">Loan Reports</div>
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead class="bg-main-color text-white text-center">
+        <tr class="text-center">
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-white"
+            style="font-weight: 600"
+          >
+            Customer Name
+          </th>
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-white"
+          >
+            Loan Amount
+          </th>
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-white"
+          >
+            Status
+          </th>
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-white"
+          >
+            Date Disbursed
+          </th>
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-white"
+          >
+            Date Repaid
+          </th>
+          <th
+            scope="col"
+            class="py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-white"
+          >
+            Action
+          </th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200">
+        <tr *ngFor="let data of loanReport">
+          <td class="px-6 py-4 whitespace-nowrap">
+            <div class="flex items-center">
+              <div class="">
+                <div class="font-medium text-gray-500">{{ data.name }}</div>
+              </div>
+            </div>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <div class="text-gray-500">NGN {{ data.amount }}</div>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <span
+              *ngIf="data.status === true"
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+            >
+              Repaid
+            </span>
+            <span
+              *ngIf="data.status !== true"
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full text-black"
+              style="background-color: #f8e5ba"
+            >
+              Active
+            </span>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-gray-500">
+            {{ data.date_disbursed }}
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-gray-500">
+            {{ data.date_repaid }}
+          </td>
+          <td>
+            <button class="btn btn-primary rounded-sm" style="color: #a87729">
+              View Customer
+              <i class="fa fa-angle-right ml-5 mt-1" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-10"></div>
+</div>
+<div
+  class="sidenav shadow-lg transition-all duration-200 translate-x-full"
+  [ngClass]="
+    showNav
+      ? '!translate-x-0 pointer-events-auto'
+      : 'pointer-events-none translate-x-full'
+  "
+>
+  <div class="flex m-5">
+    <p class="flex">
+      <svg
+        class="mr-3 mt-1"
+        width="21"
+        height="20"
+        viewBox="0 0 21 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          opacity="0.4"
+          d="M15.1667 0H5.83333C2.42889 0 0.5 1.92889 0.5 5.33333V14.6667C0.5 18.0622 2.42 20 5.83333 20H15.1667C18.5711 20 20.5 18.0622 20.5 14.6667V5.33333C20.5 1.92889 18.5711 0 15.1667 0Z"
+          fill="#FF9D00"
+        />
+        <path
+          d="M13.8205 10.7083H11.2495V13.257C11.2495 13.6673 10.9139 14 10.5 14C10.0861 14 9.75048 13.6673 9.75048 13.257V10.7083H7.17955C6.79342 10.6687 6.5 10.3461 6.5 9.96132C6.5 9.5765 6.79342 9.25394 7.17955 9.21431H9.74242V6.67365C9.78241 6.29088 10.1078 6 10.496 6C10.8842 6 11.2095 6.29088 11.2495 6.67365V9.21431H13.8205C14.2066 9.25394 14.5 9.5765 14.5 9.96132C14.5 10.3461 14.2066 10.6687 13.8205 10.7083Z"
+          fill="#FF9D00"
+        /></svg
+      >New Institution
+    </p>
+    <p class="ml-auto text-red-500 cursor-pointer" (click)="close()">
+      <i class="fa fa-times" aria-hidden="true"></i> Close
+    </p>
+  </div>
+
+  <hr />
+
+  <div class="m-5 modal-text">
+    <label class="text-gray-400">Company Name</label>
+    <input
+      type="text"
+      class="form-control form-control mt-2 appearance-none block w-full bg-gray-100 text-gray-500 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+      placeholder="Type your company name here"
+    />
+
+    <div class="mt-6">
+      <label class="text-gray-400">Company Address</label>
+      <input
+        type="text"
+        class="form-control form-control mt-2 appearance-none block w-full bg-gray-100 text-gray-500 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        placeholder="Type address here"
+      />
+    </div>
+
+    <div class="mt-6">
+      <label class="text-gray-400">Office Phone Number</label>
+      <input
+        type="text"
+        class="form-control form-control mt-2 appearance-none block w-full bg-gray-100 text-gray-500 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        placeholder="Enter office phone number here"
+      />
+    </div>
+
+    <div class="mt-6">
+      <label class="text-gray-400">Contact Person Name</label>
+      <input
+        type="text"
+        class="form-control form-control mt-2 appearance-none block w-full bg-gray-100 text-gray-500 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        placeholder="Enter name"
+      />
+    </div>
+
+    <div class="mt-6">
+      <label class="text-gray-400">Contact Person Phone Number</label>
+      <input
+        type="text"
+        class="form-control form-control mt-2 appearance-none block w-full bg-gray-100 text-gray-500 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        placeholder="Enter Phone Number"
+      />
+    </div>
+
+    <div class="mt-6">
+      <label class="text-gray-400">CAC Registration Document</label>
+      <input
+        type="file"
+        class="form-control form-control mt-2 appearance-none block w-full bg-gray-100 text-gray-500 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        placeholder="Enter office phone number here"
+      />
+    </div>
+
+    <button
+      class="w-full text-white mt-14 rounded-lg p-3"
+      style="background-color: #ff9d00"
+    >
+      Create Institution
+    </button>
+  </div>
+</div>

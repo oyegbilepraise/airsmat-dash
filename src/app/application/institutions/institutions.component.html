@@ -1,0 +1,174 @@
+<div class="container m-5">
+  <div class="flex">
+    <form>
+      <div class="relative" style="width: 600px">
+        <div
+          class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 29 29"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M13.0513 24.1025C19.1547 24.1025 24.1026 19.1547 24.1026 13.0513C24.1026 6.94782 19.1547 2 13.0513 2C6.94783 2 2 6.94782 2 13.0513C2 19.1547 6.94783 24.1025 13.0513 24.1025Z"
+              stroke="#FFD694"
+              stroke-width="2.49633"
+            />
+            <path
+              d="M20.3846 20.3845L28 28"
+              stroke="#FFD694"
+              stroke-width="2.49633"
+            />
+          </svg>
+        </div>
+        <input
+          type="search"
+          id="default-search"
+          class="block p-4 pl-10 w-full text-s m text-gray-900 bg-white outline-0 rounded-lg border border-gray-300 focus:ring-orange-500 focus:border-orange-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500"
+          placeholder="Search"
+          required=""
+        />
+      </div>
+    </form>
+    <div class="ml-auto">
+      <select
+        id="institutions"
+        style="background-color: #ff9d00"
+        class="text-white outline-0 text-sm rounded-lg block w-full p-2.5 ml-auto"
+      >
+        <option selected disabled hidden class="bg-white text-black">
+          Filter by
+        </option>
+        <option value="US" class="bg-white text-black">None</option>
+        <option value="CA" class="bg-white text-black">Active</option>
+        <option value="FR" class="bg-white text-black">Deactivated</option>
+        <option value="DE" class="bg-white text-black">Date Onboarded</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="card rounded-lg bg-white shadow-lg mt-5">
+    <div class="">
+      <div class="p-5 flex">
+        Institutions Reports
+        <span class="ml-auto mx-5"
+          ><i
+            class="fa fa-check-circle"
+            style="color: green"
+            aria-hidden="true"
+          ></i>
+          Activate</span
+        >
+        <span class="flex"
+          >
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 19 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="mt-1 mx-1"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M9.46971 18.6666C4.4071 18.6666 0.30304 14.5625 0.30304 9.49992C0.30304 4.43731 4.4071 0.333252 9.46971 0.333252C14.5323 0.333252 18.6364 4.43731 18.6364 9.49992C18.6364 14.5625 14.5323 18.6666 9.46971 18.6666ZM15.3296 14.1813C16.356 12.8983 16.9697 11.2708 16.9697 9.49992C16.9697 5.35778 13.6118 1.99992 9.46971 1.99992C7.69886 1.99992 6.07136 2.61365 4.7883 3.64L15.3296 14.1813ZM14.1511 15.3598C12.8681 16.3862 11.2406 16.9999 9.46971 16.9999C5.32757 16.9999 1.96971 13.6421 1.96971 9.49992C1.96971 7.72907 2.58343 6.10157 3.60979 4.81851L14.1511 15.3598Z"
+              fill="black"
+            />
+          </svg>
+          <span>Deactivated</span></span
+        >
+      </div>
+    </div>
+    <hr />
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead class="text-white text-center">
+        <tr class="text-center font-semibold">
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white"
+          >
+            Institutions Name
+          </th>
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white"
+          >
+            Phone Number
+          </th>
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white text-center"
+          >
+            Status
+          </th>
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white"
+          >
+            Date Onboarded
+          </th>
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white"
+          >
+            Contact Phone Number
+          </th>
+          <th
+            scope="col"
+            class="py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white"
+          >
+            Action
+          </th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200">
+        <tr *ngFor="let data of loanReport; let i = index">
+          <td class="px-6 py-4 whitespace-nowrap">
+            <div class="flex items-center">
+              <div class="flex section1">
+                <input type="checkbox" name="" id="" />
+                <div class="font-medium text-gray-500 mx-3">
+                  {{ data.name }}
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            <div class="text-gray-500">NGN {{ data.phone }}</div>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-center">
+            <span
+              *ngIf="data.status === true"
+              class="px-2 inline-flex text-xs leading-5 font-bold rounded-full bg-green-100 text-green-800 text-center"
+            >
+              Active
+            </span>
+            <span
+              *ngIf="data.status !== true"
+              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full text-black"
+              style="background-color: #f8e5ba"
+            >
+              Deactivated
+            </span>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-gray-500">
+            {{ data.date_onboarded }}
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-gray-500">
+            {{ data.contact_phone }}
+          </td>
+          <td [routerLink]="['/app/admin/institutions/1/' + data.name]">
+            <button class="btn btn-primary rounded-sm" style="color: #a87729">
+              View Customer
+              <i class="fa fa-angle-right ml-5 mt-1" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
