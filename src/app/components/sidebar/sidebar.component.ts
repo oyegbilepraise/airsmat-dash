@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ConfigService } from 'src/app/services/config.service';
 import { navbarData } from './nav-data';
 
 interface SideNavToggle {
@@ -24,15 +25,20 @@ export const ROUTES: RouteInfo[] = [
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
-  constructor() {}
+  constructor(private _configService: ConfigService) {}
 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
 
   collapsed = true;
   navData = navbarData;
   screenWidth = 0;
+  isAdmin:any;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if(this._configService.getUserDetails().role.role === 'admin')
+    this.isAdmin = true;
+    else this.isAdmin = false;
+  }
 
   toggleCollapse() {
     this.collapsed = !this.collapsed;

@@ -62,8 +62,7 @@
           ></i>
           Activate</span
         >
-        <span class="flex"
-          >
+        <span class="flex">
           <svg
             width="15"
             height="15"
@@ -82,93 +81,95 @@
           <span>Deactivated</span></span
         >
       </div>
-    </div>
-    <hr />
-    <table class="min-w-full divide-y divide-gray-200">
-      <thead class="text-white text-center">
-        <tr class="text-center font-semibold">
-          <th
-            scope="col"
-            class="px-6 py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white"
-          >
-            Institutions Name
-          </th>
-          <th
-            scope="col"
-            class="px-6 py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white"
-          >
-            Phone Number
-          </th>
-          <th
-            scope="col"
-            class="px-6 py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white text-center"
-          >
-            Status
-          </th>
-          <th
-            scope="col"
-            class="px-6 py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white"
-          >
-            Date Onboarded
-          </th>
-          <th
-            scope="col"
-            class="px-6 py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white"
-          >
-            Contact Phone Number
-          </th>
-          <th
-            scope="col"
-            class="py-3 text-left text-xs font-bold text-black uppercase tracking-wider text-white"
-          >
-            Action
-          </th>
-        </tr>
-      </thead>
-      <tbody class="bg-white divide-y divide-gray-200">
-        <tr *ngFor="let data of loanReport; let i = index">
-          <td class="px-6 py-4 whitespace-nowrap">
-            <div class="flex items-center">
-              <div class="flex section1">
-                <input type="checkbox" name="" id="" />
-                <div class="font-medium text-gray-500 mx-3">
-                  {{ data.name }}
+      <hr />
+      <div class="w-full overflow-x-auto">
+        <table class="w-full divide-y divide-gray-200">
+          <thead class="text-white text-center">
+            <tr class="text-center font-semibold">
+              <th
+                scope="col"
+                class="px-6 py-3 text-xs font-bold text-black uppercase tracking-wider text-white"
+              >
+                Business Name
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 text-xs font-bold text-black uppercase tracking-wider text-white"
+              >
+                Industry
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 text-xs font-bold text-black uppercase tracking-wider text-white text-center"
+              >
+                Institution Name
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 text-xs font-bold text-black uppercase tracking-wider text-white"
+              >
+                Business Type
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 text-xs font-bold text-black uppercase tracking-wider text-white"
+              >
+                Ownership Structure
+              </th>
+              <th
+                scope="col"
+                class="py-3 text-xs font-bold text-black uppercase tracking-wider text-white"
+              >
+                Registration Type
+              </th>
+              <th
+                scope="col"
+                class="py-3 text-xs font-bold text-black uppercase tracking-wider text-white"
+              >
+                Staff Size
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <tr *ngFor="let data of loanReport; let i = index">
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <div class="flex section1">
+                    <input type="checkbox" name="" id="" />
+                    <div class="font-medium text-gray-500 mx-3">
+                      {{ data.legalBusinessName }}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-gray-500">NGN {{ data.phone }}</div>
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap text-center">
-            <span
-              *ngIf="data.status === true"
-              class="px-2 inline-flex text-xs leading-5 font-bold rounded-full bg-green-100 text-green-800 text-center"
-            >
-              Active
-            </span>
-            <span
-              *ngIf="data.status !== true"
-              class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full text-black"
-              style="background-color: #f8e5ba"
-            >
-              Deactivated
-            </span>
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap text-gray-500">
-            {{ data.date_onboarded }}
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap text-gray-500">
-            {{ data.contact_phone }}
-          </td>
-          <td [routerLink]="['/app/admin/institutions/1/' + data.name]">
-            <button class="btn btn-primary rounded-sm" style="color: #a87729">
-              View Customer
-              <i class="fa fa-angle-right ml-5 mt-1" aria-hidden="true"></i>
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-gray-500">{{ data.industry }}</div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-gray-500 text-center">
+                {{ data.institutionName }}
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-gray-500 text-center">
+                {{ data.businessType }}
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-gray-500 text-center">
+                {{ data.ownershipStructure }}
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-gray-500 text-center">
+                {{ data.registrationType }}
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-gray-500 text-center">
+                {{ data.staffSize }}
+              </td>
+              <!-- <td [routerLink]="['/app/admin/institutions/1/' + data.name]">
+              <button class="btn btn-primary rounded-sm" style="color: #a87729">
+                View Customer
+                <i class="fa fa-angle-right ml-5 mt-1" aria-hidden="true"></i>
+              </button>
+            </td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ApplicationComponent } from './application.component';
+import { InstitutionDashboardComponent } from './institution-dashboard/institution-dashboard.component';
 import { InstitutionusersComponent } from './institutionusers/institutionusers.component';
+import { LoanDetailsComponent } from './loan-details/loan-details.component';
+import { OrganizationComponent } from './organization/organization.component';
 
 const routes: Routes = [
   {
@@ -9,7 +12,7 @@ const routes: Routes = [
     component: ApplicationComponent,
     children: [
       {
-        path: 'admin/dashboard',
+        path: 'admin/dashboard', 
         loadChildren: () =>
           import('./admin-dashboard/admin-dashboard.module').then(
             (m) => m.AdminDashboardModule
@@ -49,6 +52,9 @@ const routes: Routes = [
         path: 'admin/institutions/:id/:name',
         component: InstitutionusersComponent,
       },
+      {path: 'institutions/configurations', component: OrganizationComponent},
+      {path: 'institutions/dashboard', component: InstitutionDashboardComponent},
+      {path: 'institutions/loanplans', component: LoanDetailsComponent}
     ],
   },
 ];

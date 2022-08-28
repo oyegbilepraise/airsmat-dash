@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ApplicationComponent } from './application/application.component';
+import { ReverseAuthGuardService } from './services/reverse-auth-guard.service';
 
 const routes: Routes = [
+  { path: '', component: ApplicationComponent, canActivate: [ReverseAuthGuardService]},
   {
     path: 'app',
     loadChildren: () =>
@@ -10,7 +12,6 @@ const routes: Routes = [
         (m) => m.ApplicationModule
       ),
   },
-  { path: '', component: ApplicationComponent },
   {
     path: 'institutionusers',
     loadChildren: () =>

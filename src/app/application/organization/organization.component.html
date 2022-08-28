@@ -1,0 +1,70 @@
+<div class="card-view mt-5">
+    <div class="card rounded-lg bg-white shadow-lg mt-5 overflow-x-auto">
+        <div class="m-5">
+            <div class="flex">
+                Accept Apple Payments
+                <div class=" flex ml-auto font-medium text-gray-500"> <i *ngIf="!config_array.acceptApplePayments" class="fa fa-toggle-off fa-2x text-red-500 cursor-pointer" aria-hidden="true"></i> <i *ngIf="config_array.acceptApplePayments" class="fa fa-toggle-on fa-2x text-green-500 cursor-pointer" aria-hidden="true"></i></div>
+            </div>
+              <div class="flex mt-5">
+                Accept Bank Payments
+                <div class="text-gray-500 flex ml-auto">{{ config_array.acceptBankPayments }}</div>
+              </div>
+              <div class="flex mt-5">
+                  Accept Card Payments
+                  <div class="text-gray-500 flex ml-auto">{{ config_array.acceptCardPayments }}</div>
+              </div>
+              <div class="flex mt-5">
+                  Accept Bank Transfer
+                  <div class="text-gray-500 flex ml-auto">{{ config_array.acceptBankPayments }}</div>
+                </div>
+                <div class="flex mt-5">
+                Accept International Payments
+                <div class="text-gray-500 flex ml-auto">{{ config_array.acceptInternationalPayments }}</div>
+              </div>
+              <div class="flex mt-5">
+                Accept Pay Attitude
+                <div class="text-gray-500 flex ml-auto">{{ config_array.acceptPayAttitude }}</div>
+              </div>
+              <div class="flex mt-5">
+                Accept QR Payments
+                <div class="text-gray-500 flex ml-auto">{{ config_array.acceptQRPayments }}</div>
+            </div>
+              <div class="flex mt-5">
+                Accept USSD Payments
+                <div class="text-gray-500 flex ml-auto">{{ config_array.acceptUSSDPayments }}</div>
+              </div>
+              <div class="flex mt-5">
+                Confirm Transfer Before Sending
+                <div class="text-gray-500 flex ml-auto">{{ config_array.confirmTransfersBeforeSending }}</div>
+            </div>
+              <div class="flex mt-5">
+                Default Currency
+                <div class="text-gray-500 flex ml-auto">{{ config_array.defaultCurrency }}</div>
+              </div>
+              <div class="flex mt-5">
+                  Sent OTP Via Email
+                  <div class="text-gray-500 flex ml-auto">{{ config_array.sendOTPViaEmail }}</div>
+              </div>
+              <div class="flex mt-5">
+                Send OTP Via Phone
+                <div class="text-gray-500 flex ml-auto">{{ config_array.sendOTPViaPhone }}</div>
+              </div>
+              <div class="flex mt-5">
+                  Send Transaction Receipt to Customer
+                  <div class="text-gray-500 flex ml-auto">{{ config_array.sendTransactionReceiptToCustomer }}</div>
+                </div>
+                <div class="flex mt-5">
+                Send Transaction Receipt to Me
+                <div class="text-gray-500 flex ml-auto">{{ config_array.sendTransactionReceiptToMe }}</div>
+              </div>
+              <div class="flex mt-5">
+                Send Tranfer Receipt to Customer
+                <div class="text-gray-500 flex ml-auto">{{ config_array.sendTransferReceiptToMe }}</div>
+              </div>
+              <div class="flex mt-5">
+                  Send Tranfer Receipt to Recipient
+                  <div class="text-gray-500 flex ml-auto">{{ config_array.sendTransferReceiptToRecipient }}</div>
+                </div>
+            </div>
+      </div>
+</div>

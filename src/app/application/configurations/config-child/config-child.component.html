@@ -21,7 +21,7 @@
   </div>
   <div class="card rounded-lg bg-white shadow-lg mt-5">
     <hr />
-    <table class="min-w-full divide-y divide-gray-200">
+    <table class="min-w-full divide-y divide-gray-200 border">
       <thead class="text-white text-center">
         <tr class="text-center font-semibold">
           <th
@@ -95,23 +95,25 @@
               </div>
             </div>
           </td>
-          <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-gray-500">
+          <div class="text-gray-500">
+              <td class="px-6 py-4 whitespace-nowrap">
               {{ data?.description || data.symbol }}
+            </td>
             </div>
-          </td>
           <td>
-            <i class="fas fa-edit"></i>
-            <i class="fa fa-trash mx-4" aria-hidden="true"></i>
+            <i class="fas fa-edit" ></i>
+            <i class="fa fa-trash mx-10" aria-hidden="true"></i>
           </td>
         </tr>
-        <div
-          *ngIf="!configurations.length"
-          class="text-center flex items-center justify-center p-10 text-3xl"
-        >
-          No Data Yet
-        </div>
       </tbody>
     </table>
+    <div
+      *ngIf="!configurations.length"
+      class="text-center flex items-center justify-center p-10 text-3xl"
+    >
+      Ooops! No Data Yet
+    </div>
   </div>
 </div>
+
+

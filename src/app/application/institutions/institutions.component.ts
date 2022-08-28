@@ -1,116 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from 'src/app/services/config.service';
 
 @Component({
   selector: 'app-institutions',
   templateUrl: './institutions.component.html',
-  styleUrls: ['./institutions.component.scss']
+  styleUrls: ['./institutions.component.scss'],
 })
 export class InstitutionsComponent implements OnInit {
+  constructor(private _configService: ConfigService) {}
 
-  constructor() { }
-
-  public loanReport: any = [
-    {
-      name: 'Ade Farm Device',
-      phone: '+234 9033 000 000',
-      status: true,
-      date_onboarded: '02 Jun, 2022',
-      contact_phone: '+234 9033 000 999'
-    },
-    {
-      name: 'Damilola Farm Device',
-      phone: '+234 9033 000 000',
-      status: true,
-      date_onboarded: '02 Jun, 2022',
-      contact_phone: '+234 9033 000 999'
-    },
-    {
-      name: 'Ade Farm Device',
-      phone: '+234 9033 000 000',
-      status: true,
-      date_onboarded: '02 Jun, 2022',
-      contact_phone: '+234 9033 000 999'
-    },
-    {
-      name: 'Ade Farm Device',
-      phone: '+234 9033 000 000',
-      status: false,
-      date_onboarded: '02 Jun, 2022',
-      contact_phone: '+234 9033 000 999'
-    },
-    {
-      name: 'Ade Farm Device',
-      phone: '+234 9033 000 000',
-      status: false,
-      date_onboarded: '02 Jun, 2022',
-      contact_phone: '+234 9033 000 999'
-    },
-    {
-      name: 'Ade Farm Device',
-      phone: '+234 9033 000 000',
-      status: true,
-      date_onboarded: '02 Jun, 2022',
-      contact_phone: '+234 9033 000 999'
-    },
-    {
-      name: 'Damilola Farm Device',
-      phone: '+234 9033 000 000',
-      status: true,
-      date_onboarded: '02 Jun, 2022',
-      contact_phone: '+234 9033 000 999'
-    },
-    {
-      name: 'Ade Farm Device',
-      phone: '+234 9033 000 000',
-      status: true,
-      date_onboarded: '02 Jun, 2022',
-      contact_phone: '+234 9033 000 999'
-    },
-    {
-      name: 'Ade Farm Device',
-      phone: '+234 9033 000 000',
-      status: false,
-      date_onboarded: '02 Jun, 2022',
-      contact_phone: '+234 9033 000 999'
-    },
-    {
-      name: 'Ade Farm Device',
-      phone: '+234 9033 000 000',
-      status: true,
-      date_onboarded: '02 Jun, 2022',
-      contact_phone: '+234 9033 000 999'
-    },
-    {
-      name: 'Damilola Farm Device',
-      phone: '+234 9033 000 000',
-      status: true,
-      date_onboarded: '02 Jun, 2022',
-      contact_phone: '+234 9033 000 999'
-    },
-    {
-      name: 'Ade Farm Device',
-      phone: '+234 9033 000 000',
-      status: true,
-      date_onboarded: '02 Jun, 2022',
-      contact_phone: '+234 9033 000 999'
-    },
-    {
-      name: 'Ade Farm Device',
-      phone: '+234 9033 000 000',
-      status: false,
-      date_onboarded: '02 Jun, 2022',
-      contact_phone: '+234 9033 000 999'
-    },
-    {
-      name: 'Ade Farm Device',
-      phone: '+234 9033 000 000',
-      status: true,
-      date_onboarded: '02 Jun, 2022',
-      contact_phone: '+234 9033 000 999'
-    },
-  ];
+  public loanReport: any = [];
 
   ngOnInit(): void {
+    this._configService.getAllInstitution().subscribe((institution: any) => {
+      this.loanReport = institution.data;
+    });
   }
-
 }

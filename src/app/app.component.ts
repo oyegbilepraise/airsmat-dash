@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   NavigationCancel,
   Event,
@@ -8,34 +8,23 @@ import {
   Router,
 } from '@angular/router';
 import { NgProgress } from 'ngx-progressbar';
+import { ConfigService } from 'src/app/services/config.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'airsmat';
-  // navigationInterceptor: any;
+  constructor(private _router: Router, private _configService: ConfigService) {  }
 
-  constructor(private _router: Router) {
-    // this._router.events.subscribe((event: Event) => {
-    //   this.navigationInterceptor(event);
-    // });
-  }
-
-  private navigationInterceptor(event: Event): void {
-    if (event instanceof NavigationStart) {
-      console.log('start', { event });
-    }
-    if (event instanceof NavigationEnd) {
-      console.log('end', { event });
-    }
-    if (event instanceof NavigationCancel) {
-      console.log('cancen', { event });
-    }
-    if (event instanceof NavigationError) {
-      console.log('error', { event });
-    }
+  ngOnInit(): void {
+    // this._configService.getProfile().subscribe((profile:any) => {
+    //   sessionStorage.setItem('airsmatUser', JSON.stringify(profile.user));
+    //   if(profile.user.role.role === 'admin'){
+    //     this._router.navigate(['/app/admin/dashboard'])
+    //   }
+    // })
   }
 }
